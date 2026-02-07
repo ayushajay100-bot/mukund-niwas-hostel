@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mukund Niwas Hostel</title>
+<title>Mukund Niwas | Top Rated Hostel in Koni, Bilaspur</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
 margin:0;
-font-family:Arial;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-color:white;
+font-family:'Segoe UI', sans-serif;
+background:linear-gradient(135deg,#141e30,#243b55);
+color:#f5f5f5;
 }
 
 nav{
 background:#000;
 padding:15px;
 text-align:center;
+border-bottom:2px solid gold;
 }
 
 nav a{
-color:white;
+color:gold;
 margin:0 15px;
 text-decoration:none;
 font-weight:bold;
@@ -27,25 +28,53 @@ font-weight:bold;
 
 header{
 text-align:center;
-padding:50px 20px;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+padding:100px 20px;
+background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
 url('https://images.unsplash.com/photo-1560448075-bb485b067938') center/cover;
+background-size:cover;
 }
 
-section{padding:30px;}
+header h1{
+font-size:42px;
+color:gold;
+}
+
+header p{
+color:silver;
+font-size:18px;
+}
+
+.badge{
+display:inline-block;
+background:gold;
+color:black;
+padding:8px 15px;
+border-radius:30px;
+font-weight:bold;
+margin-top:10px;
+}
+
+section{
+padding:40px 25px;
+}
 
 .box{
-background:white;
-color:black;
-padding:20px;
-margin-bottom:20px;
+background:rgba(0,0,0,0.6);
+padding:25px;
+margin-bottom:30px;
 border-radius:15px;
+box-shadow:0 0 20px rgba(255,215,0,0.3);
+border:1px solid rgba(255,215,0,0.3);
+}
+
+h2{
+color:gold;
 }
 
 .rooms{
 display:grid;
 grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
-gap:10px;
+gap:12px;
 }
 
 .room{
@@ -53,15 +82,57 @@ padding:12px;
 border-radius:8px;
 text-align:center;
 font-weight:bold;
+color:white;
+cursor:pointer;
+transition:0.3s;
 }
 
-.filled{background:#e74c3c;color:white;}
-.vacant{background:#27ae60;color:white;cursor:pointer;}
+.filled{
+background:#c0392b;
+cursor:default;
+}
 
-.gallery img{
+.vacant{
+background:#27ae60;
+}
+
+.vacant:hover{
+transform:scale(1.05);
+}
+
+.btn{
+background:gold;
+color:black;
+padding:12px 18px;
+display:inline-block;
+margin-top:12px;
+text-decoration:none;
+border-radius:5px;
+font-weight:bold;
+}
+
+.btn:hover{
+background:silver;
+}
+
+input, textarea{
 width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:6px;
+border:none;
+}
+
+.stars{
+color:gold;
+font-size:22px;
+}
+
+.testimonial{
+background:rgba(255,255,255,0.1);
+padding:15px;
 border-radius:10px;
-margin-bottom:10px;
+margin-top:15px;
 }
 
 .modal{
@@ -77,28 +148,39 @@ align-items:center;
 }
 
 .modal-content{
-background:white;
+background:#fff;
+color:black;
 padding:20px;
 border-radius:10px;
 width:90%;
 max-width:400px;
-color:black;
+text-align:center;
 }
 
 .close{
-float:right;
 cursor:pointer;
+float:right;
 font-weight:bold;
 }
 
-.btn{
-background:black;
+footer{
+background:#000;
+text-align:center;
+padding:20px;
+color:silver;
+border-top:2px solid gold;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
 color:white;
-padding:10px;
-display:inline-block;
-margin-top:10px;
+padding:15px;
+border-radius:50%;
 text-decoration:none;
-border-radius:5px;
+font-size:20px;
 }
 </style>
 </head>
@@ -107,63 +189,91 @@ border-radius:5px;
 
 <nav>
 <a href="#rooms">Rooms</a>
-<a href="#gallery">Gallery</a>
+<a href="#reviews">Reviews</a>
 <a href="#booking">Booking</a>
-<a href="#admin">Admin</a>
+<a href="#payment">Payment</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <header>
 <h1>Mukund Niwas</h1>
-<p>Safe • Secure • 24×7 Water & Electricity • Free WiFi • Open Terrace</p>
+<p>Premium & Safe Hostel in Koni, Bilaspur</p>
+<div class="badge">⭐ Top Rated Hostel in Koni</div>
 </header>
 
 <section id="rooms">
 <div class="box">
 <h2>Room Availability</h2>
 <p><strong>Available Rooms: <span id="count"></span></strong></p>
-
-<h3>Ground Floor (1-10)</h3>
-<div class="rooms" id="ground"></div>
-
-<h3>First Floor (11-21)</h3>
-<div class="rooms" id="first"></div>
-
-<h3>Second Floor (22-32)</h3>
-<div class="rooms" id="second"></div>
-
+<div class="rooms" id="roomContainer"></div>
 </div>
 </section>
 
-<section id="gallery">
+<section id="reviews">
 <div class="box">
-<h2>Hostel Gallery</h2>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1555854877-bab0e460b8a5">
-<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7">
-<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+<h2>Student Reviews</h2>
+<div class="stars">★★★★★</div>
+
+<div class="testimonial">
+<strong>Rahul Verma</strong><br>
+Very peaceful and safe environment. Best hostel near Jay Jaya ITI.
 </div>
+
+<div class="testimonial">
+<strong>Ankit Sharma</strong><br>
+24×7 water and electricity. Owner is very supportive.
+</div>
+
+<div class="testimonial">
+<strong>Priya Singh</strong><br>
+Clean rooms with attached bathrooms. Highly recommended!
+</div>
+
 </div>
 </section>
 
 <section id="booking">
 <div class="box">
-<h2>Online Booking</h2>
-<form id="bookingForm">
-<input type="text" placeholder="Name" required><br><br>
-<input type="tel" placeholder="Phone" required><br><br>
-<input type="number" placeholder="Room Number" required><br><br>
-<button type="submit">Submit Booking</button>
+<h2>Booking Enquiry</h2>
+<form onsubmit="sendEnquiry(event)">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<textarea id="message" placeholder="Your Message"></textarea>
+<button type="submit" class="btn">Send Enquiry</button>
 </form>
-<p id="bookingMsg"></p>
 </div>
 </section>
 
-<section id="admin">
+<section id="payment">
 <div class="box">
-<h2>Secure Admin Login</h2>
-<input type="password" id="adminPass" placeholder="Enter Password">
-<button onclick="adminLogin()">Login</button>
-<p id="adminMsg"></p>
+<h2>UPI Payment</h2>
+<p><strong>UPI ID:</strong> Chandsubrata@ybl</p>
+<p>
+₹2500 per bed monthly + ₹2500 one time deposit (fully refundable).  
+For booking confirmation, advance payment of ₹2500 is necessary.  
+After payment, kindly send the screenshot on WhatsApp.
+</p>
+<a class="btn"
+href="upi://pay?pa=Chandsubrata@ybl&pn=MukundNiwas&am=2500&cu=INR">
+Pay ₹2500 Now
+</a>
+</div>
+</section>
+
+<section id="contact">
+<div class="box">
+<h2>Contact & Location</h2>
+<p>📞 7000571416</p>
+<a class="btn"
+href="https://wa.me/917000571416?text=Hello I want to book a room at Mukund Niwas">
+Book on WhatsApp
+</a>
+<br><br>
+<a class="btn"
+href="https://maps.app.goo.gl/zp2z5449XkAmro1g9?g_st=awb"
+target="_blank">
+View Location on Google Maps
+</a>
 </div>
 </section>
 
@@ -172,48 +282,39 @@ border-radius:5px;
 <span class="close" onclick="closeModal()">X</span>
 <h3 id="roomTitle"></h3>
 <img id="roomImage" src="" style="width:100%;border-radius:10px;">
-<a id="bookBtn" class="btn">Book via WhatsApp</a>
+<a id="bookBtn" class="btn">Book on WhatsApp</a>
 </div>
 </div>
+
+<a class="whatsapp" href="https://wa.me/917000571416">💬</a>
+
+<footer>
+© 2026 Mukund Niwas Hostel | Premium Living
+</footer>
 
 <script>
-let roomsData = JSON.parse(localStorage.getItem("rooms")) || {};
+let container=document.getElementById("roomContainer");
+let available=0;
 
-function createRoom(num,container){
-let status = roomsData[num] || (num%2===0?"filled":"vacant");
-
+for(let i=1;i<=32;i++){
 let div=document.createElement("div");
-div.className="room "+status;
-div.innerText="Room "+num+" - "+status.toUpperCase();
+div.classList.add("room");
 
-if(status==="vacant"){
-div.onclick=function(){openRoom(num);}
+if(i<=20){
+div.classList.add("filled");
+div.innerText="Room "+i+" - FILLED";
+}
+else{
+div.classList.add("vacant");
+div.innerText="Room "+i+" - VACANT";
+available++;
+div.onclick=function(){openRoom(i);}
 }
 
 container.appendChild(div);
 }
 
-function renderRooms(){
-document.getElementById("ground").innerHTML="";
-document.getElementById("first").innerHTML="";
-document.getElementById("second").innerHTML="";
-let available=0;
-
-for(let i=1;i<=32;i++){
-if(!roomsData[i]){
-roomsData[i]=(i%2===0?"filled":"vacant");
-}
-
-if(roomsData[i]==="vacant") available++;
-
-if(i<=10) createRoom(i,ground);
-else if(i<=21) createRoom(i,first);
-else createRoom(i,second);
-}
-
 document.getElementById("count").innerText=available;
-localStorage.setItem("rooms",JSON.stringify(roomsData));
-}
 
 function openRoom(num){
 document.getElementById("roomModal").style.display="flex";
@@ -226,28 +327,16 @@ function closeModal(){
 document.getElementById("roomModal").style.display="none";
 }
 
-function adminLogin(){
-let pass=document.getElementById("adminPass").value;
-if(pass==="mukund2026"){
-document.getElementById("adminMsg").innerText="Login Successful! Click any room to toggle.";
-document.querySelectorAll(".room").forEach((div,index)=>{
-div.onclick=function(){
-let num=index+1;
-roomsData[num]=roomsData[num]==="filled"?"vacant":"filled";
-renderRooms();
-};
-});
-}else{
-document.getElementById("adminMsg").innerText="Wrong Password";
-}
-}
-
-renderRooms();
-
-document.getElementById("bookingForm").addEventListener("submit",function(e){
+function sendEnquiry(e){
 e.preventDefault();
-document.getElementById("bookingMsg").innerText="Booking Request Submitted!";
-});
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let message=document.getElementById("message").value;
+let text="Booking Enquiry:%0AName: "+name+
+"%0APhone: "+phone+
+"%0AMessage: "+message;
+window.open("https://wa.me/917000571416?text="+text);
+}
 </script>
 
 </body>
