@@ -3,200 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mukund Niwas | Premium Boys Hostel</title>
+    <title>Mukund Niwas | Premium Living</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #d4af37; /* Gold for premium feel */
-            --dark: #1a1a1a;
-            --light: #f4f4f4;
-            --success: #2ecc71;
-            --danger: #e74c3c;
+            --primary: #d4af37; 
+            --dark: #121212;
+            --card-bg: #1e1e1e;
+            --light: #e0e0e0;
+            --success: #27ae60;
+            --danger: #c0392b;
+            --whatsapp: #25d366;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            background-color: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-        }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--dark); color: var(--light); scroll-behavior: smooth; }
 
-        /* Hero Section */
+        /* Premium Hero Section */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555854817-5b2247a8175f?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
 
-        h1 { font-size: 3rem; color: var(--primary); margin-bottom: 10px; }
-        .subtitle { font-size: 1.2rem; max-width: 600px; }
+        .btn { padding: 12px 25px; border-radius: 30px; border: none; cursor: pointer; font-weight: bold; text-decoration: none; transition: 0.3s; display: inline-block; margin: 10px; }
+        .btn-primary { background: var(--primary); color: black; }
+        .btn-whatsapp { background: var(--whatsapp); color: white; }
 
-        /* Content Container */
-        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .card {
-            background: #252525;
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
-        }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        
+        /* Grid Layouts */
+        .section-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { background: var(--card-bg); padding: 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
         /* Room Grid */
-        .floor-title { border-bottom: 2px solid var(--primary); margin: 30px 0 15px; padding-bottom: 10px; }
-        .room-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 15px;
-        }
+        .room-container { margin: 40px 0; }
+        .room-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; margin-top: 15px; }
+        .room { padding: 15px 5px; text-align: center; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
+        .filled { background: #333; color: #777; border: 1px solid #444; cursor: not-allowed; }
+        .vacant { background: var(--success); color: white; box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3); }
 
-        .room {
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s;
-            font-weight: bold;
-        }
-        .room:hover { transform: scale(1.05); }
-        .filled { background-color: var(--danger); color: white; opacity: 0.6; }
-        .vacant { background-color: var(--success); color: white; }
+        /* Payment Section */
+        .payment-box { text-align: center; border: 2px dashed var(--primary); padding: 20px; border-radius: 15px; }
+        .upi-id { font-size: 1.2rem; color: var(--primary); letter-spacing: 1px; margin: 10px 0; }
 
-        /* Modal / Popup */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .modal-content {
-            background: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            max-width: 500px;
-            width: 90%;
-            color: #000;
-            text-align: center;
-        }
-        .modal-content img { width: 100%; border-radius: 5px; }
+        /* Modal */
+        .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: white; color: black; padding: 20px; border-radius: 15px; width: 90%; max-width: 400px; text-align: center; }
+        .modal-content img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
 
-        footer { text-align: center; padding: 40px; background: #111; font-size: 0.9rem; }
+        /* Admin Login Style */
+        .admin-login { margin-top: 50px; opacity: 0.5; text-align: center; }
+        .admin-login:hover { opacity: 1; }
+
+        input { width: 80%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Mukund Niwas</h1>
-    <p class="subtitle">Experience peaceful, secure, and premium living at River View Colony, Koni.</p>
+    <h1 style="font-size: 3.5rem; color: var(--primary); margin: 0;">Mukund Niwas</h1>
+    <p style="font-size: 1.2rem; letter-spacing: 2px;">PREMIUM BOYS HOSTEL</p>
+    <div>
+        <a href="#rooms" class="btn btn-primary">View Availability</a>
+        <a href="https://wa.me/917000571416" class="btn btn-whatsapp">Direct Chat</a>
+    </div>
 </header>
 
 <div class="container">
     
-    <div class="details-grid">
+    <div class="section-grid">
         <div class="card">
-            <h3>📍 Location & Contact</h3>
-            <p>River View Colony, Koni<br>Near Jay Jaya ITI</p>
+            <h3>📍 Visit Us</h3>
+            <p>River View Colony, Koni, Near Jay Jaya ITI</p>
+            <a href="https://maps.app.goo.gl/zp2z5449XkAmro1g9?g_st=awb" style="color: var(--primary);">Open in Google Maps</a>
+            <hr style="border-color: #333; margin: 15px 0;">
             <p><strong>Owner:</strong> Subrata Chand</p>
-            <p><strong>Phone:</strong> +91 7000571416</p>
+            <p><strong>Contact:</strong> +91 7000571416</p>
         </div>
-        <div class="card">
-            <h3>💎 Pricing</h3>
-            <p><strong>Rent:</strong> ₹2,500 / month (per bed)</p>
-            <p><strong>Deposit:</strong> ₹2,500 (100% Refundable)</p>
-            <p><strong>Status:</strong> Caretaker Available 24/7</p>
+
+        <div class="card payment-box">
+            <h3>💳 Easy Payment</h3>
+            <p>Secure your bed instantly</p>
+            <div class="upi-id">chandsubrata@ybl</div>
+            <p style="font-size: 0.8rem;">Deposit: ₹2500 (Refundable)<br>Monthly: ₹2500</p>
+            <button class="btn btn-primary" onclick="alert('Proceed to UPI app and pay to chandsubrata@ybl')">Pay via UPI</button>
         </div>
     </div>
 
-    <div class="card" style="margin-bottom: 50px;">
-        <h3>🚀 Premium Facilities</h3>
-        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <li>✅ RO Purified Water</li>
-            <li>✅ Attached Bathrooms</li>
-            <li>✅ Personal Study Tables</li>
-            <li>✅ High-Speed Free Wi-Fi</li>
-            <li>✅ 24/7 Water & Electricity</li>
-            <li>✅ Peaceful Study Environment</li>
-            <li>✅ CCTV Secured Campus</li>
-        </ul>
+    <div id="rooms" class="room-container">
+        <h2>Room Availability</h2>
+        <p>Select a <span style="color: var(--success)">Green</span> room to book via WhatsApp.</p>
+        
+        <h4>Ground Floor</h4>
+        <div id="gf" class="room-grid"></div>
+        
+        <h4>First Floor</h4>
+        <div id="ff" class="room-grid"></div>
+        
+        <h4>Second Floor</h4>
+        <div id="sf" class="room-grid"></div>
     </div>
 
-    <h2 class="floor-title">Ground Floor (1 - 10)</h2>
-    <div id="ground-floor" class="room-grid"></div>
+    <div class="card">
+        <h3>📩 Booking Enquiry</h3>
+        <form id="enquiryForm">
+            <input type="text" placeholder="Your Full Name" required><br>
+            <input type="tel" placeholder="Phone Number" required><br>
+            <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+        </form>
+    </div>
 
-    <h2 class="floor-title">First Floor (11 - 20)</h2>
-    <div id="first-floor" class="room-grid"></div>
-
-    <h2 class="floor-title">Second Floor (21 - 32)</h2>
-    <div id="second-floor" class="room-grid"></div>
-
+    <div class="admin-login">
+        <hr>
+        <p>Internal Use Only</p>
+        <button onclick="showAdmin()" style="background:none; border:none; color: gray; cursor: pointer;">Admin Login</button>
+        <div id="adminPanel" style="display:none; margin-top:10px;">
+            <input type="password" id="adminPass" placeholder="Enter Password">
+            <button class="btn btn-primary" onclick="checkAdmin()">Login</button>
+        </div>
+    </div>
 </div>
 
 <div id="roomModal" class="modal" onclick="closeModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
-        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80" alt="Room Image">
-        <h3 id="modalRoomTitle">Room Details</h3>
-        <p>Premium furnishings with ample sunlight and ventilation.</p>
-        <button onclick="closeModal()" style="padding: 10px 20px; cursor: pointer;">Close</button>
+        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=500&q=80" id="modalImg">
+        <h3 id="modalTitle">Room</h3>
+        <p>Includes: Study Table, RO Water, Attached Bath, High-Speed WiFi.</p>
+        <a id="whatsappLink" href="#" class="btn btn-whatsapp">Book via WhatsApp</a>
+        <button onclick="closeModal()" style="display:block; margin: 10px auto; border:none; background:none; cursor:pointer;">Cancel</button>
     </div>
 </div>
 
 <footer>
-    &copy; 2026 Mukund Niwas. All rights reserved. | Managed by Subrata Chand
+    <div style="text-align: center; padding: 40px; color: #555;">
+        &copy; 2026 Mukund Niwas | Koni, Bilaspur
+    </div>
 </footer>
 
 <script>
-    const ground = document.getElementById('ground-floor');
-    const first = document.getElementById('first-floor');
-    const second = document.getElementById('second-floor');
-
-    // Room Logic: 20 Filled, 12 Vacant (Alternating)
-    for (let i = 1; i <= 32; i++) {
-        const room = document.createElement('div');
-        room.classList.add('room');
-        room.innerText = "Room " + i;
+    // Room Generation Logic
+    function createRooms() {
+        const floors = { gf: [1, 10], ff: [11, 20], sf: [21, 32] };
         
-        // Logical pattern to get exactly 20 filled and 12 vacant
-        // Most odd numbers filled, some even filled to hit the 20/12 ratio
-        if (i % 2 !== 0 || i > 24) { 
-            room.classList.add('filled');
-            room.title = "Currently Occupied";
-        } else {
-            room.classList.add('vacant');
-            room.title = "Available for Booking";
+        for (const [id, range] of Object.entries(floors)) {
+            const container = document.getElementById(id);
+            for (let i = range[0]; i <= range[1]; i++) {
+                const room = document.createElement('div');
+                room.className = 'room';
+                
+                // Pattern: Room 1, 3, 5... (and others) are filled to reach 20 filled/12 vacant
+                const isVacant = (i % 2 === 0 && i <= 24); 
+                
+                if (isVacant) {
+                    room.classList.add('vacant');
+                    room.innerText = "R-" + i;
+                    room.onclick = () => openModal(i);
+                } else {
+                    room.classList.add('filled');
+                    room.innerText = "R-" + i;
+                    room.onclick = () => alert("Room " + i + " is already occupied.");
+                }
+                container.appendChild(room);
+            }
         }
-
-        room.onclick = () => openModal(i);
-
-        if (i <= 10) ground.appendChild(room);
-        else if (i <= 20) first.appendChild(room);
-        else second.appendChild(room);
     }
 
     function openModal(num) {
-        document.getElementById('modalRoomTitle').innerText = "Viewing Room " + num;
+        document.getElementById('modalTitle').innerText = "Book Room No: " + num;
+        // This creates the WhatsApp message automatically
+        const msg = encodeURIComponent("Hello Subrata Sir, I am interested in booking Room No: " + num + " at Mukund Niwas. Please let me know the next steps.");
+        document.getElementById('whatsappLink').href = "https://wa.me/917000571416?text=" + msg;
         document.getElementById('roomModal').style.display = 'flex';
     }
 
     function closeModal() {
         document.getElementById('roomModal').style.display = 'none';
     }
+
+    function showAdmin() {
+        document.getElementById('adminPanel').style.display = 'block';
+    }
+
+    function checkAdmin() {
+        const pass = document.getElementById('adminPass').value;
+        if(pass === "admin123") {
+            alert("Payment Confirmation Page: No pending payments.");
+        } else {
+            alert("Incorrect Password");
+        }
+    }
+
+    document.getElementById('enquiryForm').onsubmit = (e) => {
+        e.preventDefault();
+        alert("Enquiry sent successfully! Subrata Chand will contact you shortly.");
+    };
+
+    createRooms();
 </script>
 
 </body>
