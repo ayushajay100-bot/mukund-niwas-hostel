@@ -27,7 +27,7 @@ font-weight:bold;
 
 header{
 text-align:center;
-padding:70px 20px;
+padding:50px 20px;
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
 url('https://images.unsplash.com/photo-1560448075-bb485b067938') center/cover;
 }
@@ -53,20 +53,15 @@ padding:12px;
 border-radius:8px;
 text-align:center;
 font-weight:bold;
-cursor:pointer;
 }
 
-.filled{background:#e74c3c;color:white;cursor:default;}
-.vacant{background:#27ae60;color:white;}
+.filled{background:#e74c3c;color:white;}
+.vacant{background:#27ae60;color:white;cursor:pointer;}
 
-.btn{
-background:black;
-color:white;
-padding:10px;
-display:inline-block;
-margin-top:10px;
-text-decoration:none;
-border-radius:5px;
+.gallery img{
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
 }
 
 .modal{
@@ -95,6 +90,16 @@ float:right;
 cursor:pointer;
 font-weight:bold;
 }
+
+.btn{
+background:black;
+color:white;
+padding:10px;
+display:inline-block;
+margin-top:10px;
+text-decoration:none;
+border-radius:5px;
+}
 </style>
 </head>
 
@@ -102,9 +107,9 @@ font-weight:bold;
 
 <nav>
 <a href="#rooms">Rooms</a>
-<a href="#payment">Payment</a>
+<a href="#gallery">Gallery</a>
+<a href="#booking">Booking</a>
 <a href="#admin">Admin</a>
-<a href="#contact">Contact</a>
 </nav>
 
 <header>
@@ -112,78 +117,53 @@ font-weight:bold;
 <p>Safe • Secure • 24×7 Water & Electricity • Free WiFi • Open Terrace</p>
 </header>
 
-<section>
-<div class="box">
-<h2>About Mukund Niwas</h2>
-<p>
-Located at River View Colony, Koni near Jay Jaya ITI, Mukund Niwas provides 
-a safe, secure and peaceful environment for students and professionals.
-</p>
-
-<ul>
-<li>24×7 Water & Electricity</li>
-<li>RO Drinking Water</li>
-<li>Free High-Speed WiFi</li>
-<li>Attached Bathrooms</li>
-<li>Study Table in Every Room</li>
-<li>Flexible Gate Timings</li>
-<li>Open Terrace</li>
-<li>Caretaker Available</li>
-</ul>
-
-<p><strong>Owner:</strong> Subrata Chand</p>
-<p><strong>Cost:</strong> ₹2500 per bed</p>
-<p><strong>Security Deposit:</strong> ₹2500 (Refundable)</p>
-</div>
-</section>
-
 <section id="rooms">
 <div class="box">
 <h2>Room Availability</h2>
 <p><strong>Available Rooms: <span id="count"></span></strong></p>
 
-<h3>Ground Floor (1–10)</h3>
+<h3>Ground Floor (1-10)</h3>
 <div class="rooms" id="ground"></div>
 
-<h3>First Floor (11–21)</h3>
+<h3>First Floor (11-21)</h3>
 <div class="rooms" id="first"></div>
 
-<h3>Second Floor (22–32)</h3>
+<h3>Second Floor (22-32)</h3>
 <div class="rooms" id="second"></div>
 
 </div>
 </section>
 
-<section id="payment">
+<section id="gallery">
 <div class="box">
-<h2>Online Payment</h2>
-<p>UPI ID: Chandsubrata@ybl</p>
-<a class="btn" href="upi://pay?pa=Chandsubrata@ybl&pn=MukundNiwas&am=2500&cu=INR">
-Pay ₹2500 Now
-</a>
-<br><br>
-<a class="btn" href="payment-success.html">I Have Paid</a>
+<h2>Hostel Gallery</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1555854877-bab0e460b8a5">
+<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7">
+<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+</div>
+</div>
+</section>
+
+<section id="booking">
+<div class="box">
+<h2>Online Booking</h2>
+<form id="bookingForm">
+<input type="text" placeholder="Name" required><br><br>
+<input type="tel" placeholder="Phone" required><br><br>
+<input type="number" placeholder="Room Number" required><br><br>
+<button type="submit">Submit Booking</button>
+</form>
+<p id="bookingMsg"></p>
 </div>
 </section>
 
 <section id="admin">
 <div class="box">
-<h2>Admin Login</h2>
+<h2>Secure Admin Login</h2>
 <input type="password" id="adminPass" placeholder="Enter Password">
 <button onclick="adminLogin()">Login</button>
 <p id="adminMsg"></p>
-</div>
-</section>
-
-<section id="contact">
-<div class="box">
-<h2>Contact</h2>
-<p>📞 7000571416</p>
-<a class="btn" href="tel:7000571416">Call Now</a>
-<br><br>
-<a class="btn" href="https://www.google.com/maps/search/?api=1&query=River+View+Colony+Koni+Near+Jay+Jaya+ITI" target="_blank">
-Open in Google Maps
-</a>
 </div>
 </section>
 
@@ -198,50 +178,58 @@ Open in Google Maps
 
 <script>
 let roomsData = JSON.parse(localStorage.getItem("rooms")) || {};
-let available=0;
+
+function createRoom(num,container){
+let status = roomsData[num] || (num%2===0?"filled":"vacant");
+
+let div=document.createElement("div");
+div.className="room "+status;
+div.innerText="Room "+num+" - "+status.toUpperCase();
+
+if(status==="vacant"){
+div.onclick=function(){openRoom(num);}
+}
+
+container.appendChild(div);
+}
 
 function renderRooms(){
-ground.innerHTML="";
-first.innerHTML="";
-second.innerHTML="";
-available=0;
+document.getElementById("ground").innerHTML="";
+document.getElementById("first").innerHTML="";
+document.getElementById("second").innerHTML="";
+let available=0;
 
 for(let i=1;i<=32;i++){
 if(!roomsData[i]){
 roomsData[i]=(i%2===0?"filled":"vacant");
 }
-let div=document.createElement("div");
-div.className="room "+roomsData[i];
-div.innerText="Room "+i+" - "+roomsData[i].toUpperCase();
 
-if(roomsData[i]==="vacant"){
-available++;
-div.onclick=function(){openRoom(i);}
+if(roomsData[i]==="vacant") available++;
+
+if(i<=10) createRoom(i,ground);
+else if(i<=21) createRoom(i,first);
+else createRoom(i,second);
 }
 
-if(i<=10) ground.appendChild(div);
-else if(i<=21) first.appendChild(div);
-else second.appendChild(div);
-}
-
-count.innerText=available;
+document.getElementById("count").innerText=available;
 localStorage.setItem("rooms",JSON.stringify(roomsData));
 }
 
 function openRoom(num){
-roomModal.style.display="flex";
-roomTitle.innerText="Room "+num;
-roomImage.src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7";
-bookBtn.href="https://wa.me/917000571416?text=I want to book Room "+num;
+document.getElementById("roomModal").style.display="flex";
+document.getElementById("roomTitle").innerText="Room "+num;
+document.getElementById("roomImage").src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7";
+document.getElementById("bookBtn").href="https://wa.me/917000571416?text=I want to book Room "+num;
 }
 
 function closeModal(){
-roomModal.style.display="none";
+document.getElementById("roomModal").style.display="none";
 }
 
 function adminLogin(){
-if(adminPass.value==="mukund2026"){
-adminMsg.innerText="Admin Mode Active. Click rooms to toggle.";
+let pass=document.getElementById("adminPass").value;
+if(pass==="mukund2026"){
+document.getElementById("adminMsg").innerText="Login Successful! Click any room to toggle.";
 document.querySelectorAll(".room").forEach((div,index)=>{
 div.onclick=function(){
 let num=index+1;
@@ -250,12 +238,17 @@ renderRooms();
 };
 });
 }else{
-adminMsg.innerText="Wrong Password";
+document.getElementById("adminMsg").innerText="Wrong Password";
 }
 }
 
 renderRooms();
+
+document.getElementById("bookingForm").addEventListener("submit",function(e){
+e.preventDefault();
+document.getElementById("bookingMsg").innerText="Booking Request Submitted!";
+});
 </script>
 
 </body>
-    </html>
+</html>
