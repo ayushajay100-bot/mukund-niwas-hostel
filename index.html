@@ -202,75 +202,256 @@ I Have Paid
 <input type="password" id="adminPass" placeholder="Enter Admin Password">
 <button onclick="adminLogin()">Login</button>
 <p id="adminMsg"></p>
-</div>
-</section>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mukund Niwas Hostel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section id="contact">
-<div class="box">
-<h2>Contact & Location</h2>
-<p>📞 7000571416</p>
-<a class="btn" href="tel:7000571416">Call Now</a>
-<br><br>
-<a class="btn" href="https://www.google.com/maps/search/?api=1&query=River+View+Colony+Koni+Near+Jay+Jaya+ITI" target="_blank">
-Open in Google Maps
-</a>
-</div>
-</section>
-
-<a class="whatsapp" href="https://wa.me/917000571416" target="_blank">💬</a>
-
-<footer>
-© 2026 Mukund Niwas Hostel | Premium Living
-</footer>
-
-<script>
-let rooms = [];
-let available = 0;
-
-for(let i=1;i<=32;i++){
-let status = (i%2===0)?"filled":"vacant";
-rooms.push({number:i,status:status});
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
 }
 
-function renderRooms(){
-let container=document.getElementById("roomContainer");
-container.innerHTML="";
-available=0;
+nav{
+background:#000;
+padding:15px;
+text-align:center;
+}
 
-rooms.forEach(room=>{
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+header{
+text-align:center;
+padding:50px 20px;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1560448075-bb485b067938') center/cover;
+}
+
+section{padding:30px;}
+
+.box{
+background:white;
+color:black;
+padding:20px;
+margin-bottom:20px;
+border-radius:15px;
+}
+
+.rooms{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+gap:10px;
+}
+
+.room{
+padding:12px;
+border-radius:8px;
+text-align:center;
+font-weight:bold;
+}
+
+.filled{background:#e74c3c;color:white;}
+.vacant{background:#27ae60;color:white;cursor:pointer;}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.modal-content{
+background:white;
+padding:20px;
+border-radius:10px;
+width:90%;
+max-width:400px;
+color:black;
+}
+
+.close{
+float:right;
+cursor:pointer;
+font-weight:bold;
+}
+
+.btn{
+background:black;
+color:white;
+padding:10px;
+display:inline-block;
+margin-top:10px;
+text-decoration:none;
+border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#rooms">Rooms</a>
+<a href="#gallery">Gallery</a>
+<a href="#booking">Booking</a>
+<a href="#admin">Admin</a>
+</nav>
+
+<header>
+<h1>Mukund Niwas</h1>
+<p>Safe • Secure • 24×7 Water & Electricity • Free WiFi • Open Terrace</p>
+</header>
+
+<section id="rooms">
+<div class="box">
+<h2>Room Availability</h2>
+<p><strong>Available Rooms: <span id="count"></span></strong></p>
+
+<h3>Ground Floor (1-10)</h3>
+<div class="rooms" id="ground"></div>
+
+<h3>First Floor (11-21)</h3>
+<div class="rooms" id="first"></div>
+
+<h3>Second Floor (22-32)</h3>
+<div class="rooms" id="second"></div>
+
+</div>
+</section>
+
+<section id="gallery">
+<div class="box">
+<h2>Hostel Gallery</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1555854877-bab0e460b8a5">
+<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7">
+<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+</div>
+</div>
+</section>
+
+<section id="booking">
+<div class="box">
+<h2>Online Booking</h2>
+<form id="bookingForm">
+<input type="text" placeholder="Name" required><br><br>
+<input type="tel" placeholder="Phone" required><br><br>
+<input type="number" placeholder="Room Number" required><br><br>
+<button type="submit">Submit Booking</button>
+</form>
+<p id="bookingMsg"></p>
+</div>
+</section>
+
+<section id="admin">
+<div class="box">
+<h2>Secure Admin Login</h2>
+<input type="password" id="adminPass" placeholder="Enter Password">
+<button onclick="adminLogin()">Login</button>
+<p id="adminMsg"></p>
+</div>
+</section>
+
+<div class="modal" id="roomModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">X</span>
+<h3 id="roomTitle"></h3>
+<img id="roomImage" src="" style="width:100%;border-radius:10px;">
+<a id="bookBtn" class="btn">Book via WhatsApp</a>
+</div>
+</div>
+
+<script>
+let roomsData = JSON.parse(localStorage.getItem("rooms")) || {};
+
+function createRoom(num,container){
+let status = roomsData[num] || (num%2===0?"filled":"vacant");
+
 let div=document.createElement("div");
-div.className="room "+room.status;
-div.innerText="Room "+room.number+" - "+room.status.toUpperCase();
+div.className="room "+status;
+div.innerText="Room "+num+" - "+status.toUpperCase();
 
-if(room.status==="vacant"){
-available++;
-div.onclick=function(){
-window.open("https://wa.me/917000571416?text=I want to book Room "+room.number);
-};
+if(status==="vacant"){
+div.onclick=function(){openRoom(num);}
 }
 
 container.appendChild(div);
-});
+}
 
-document.getElementById("availableCount").innerText=available;
+function renderRooms(){
+document.getElementById("ground").innerHTML="";
+document.getElementById("first").innerHTML="";
+document.getElementById("second").innerHTML="";
+let available=0;
+
+for(let i=1;i<=32;i++){
+if(!roomsData[i]){
+roomsData[i]=(i%2===0?"filled":"vacant");
+}
+
+if(roomsData[i]==="vacant") available++;
+
+if(i<=10) createRoom(i,ground);
+else if(i<=21) createRoom(i,first);
+else createRoom(i,second);
+}
+
+document.getElementById("count").innerText=available;
+localStorage.setItem("rooms",JSON.stringify(roomsData));
+}
+
+function openRoom(num){
+document.getElementById("roomModal").style.display="flex";
+document.getElementById("roomTitle").innerText="Room "+num;
+document.getElementById("roomImage").src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7";
+document.getElementById("bookBtn").href="https://wa.me/917000571416?text=I want to book Room "+num;
+}
+
+function closeModal(){
+document.getElementById("roomModal").style.display="none";
 }
 
 function adminLogin(){
 let pass=document.getElementById("adminPass").value;
-if(pass==="admin123"){
-document.getElementById("adminMsg").innerText="Login Successful! Click rooms to toggle status.";
-document.querySelectorAll(".room").forEach((roomDiv,index)=>{
-roomDiv.onclick=function(){
-rooms[index].status = rooms[index].status==="filled"?"vacant":"filled";
+if(pass==="mukund2026"){
+document.getElementById("adminMsg").innerText="Login Successful! Click any room to toggle.";
+document.querySelectorAll(".room").forEach((div,index)=>{
+div.onclick=function(){
+let num=index+1;
+roomsData[num]=roomsData[num]==="filled"?"vacant":"filled";
 renderRooms();
 };
 });
 }else{
-document.getElementById("adminMsg").innerText="Wrong Password!";
+document.getElementById("adminMsg").innerText="Wrong Password";
 }
 }
 
 renderRooms();
+
+document.getElementById("bookingForm").addEventListener("submit",function(e){
+e.preventDefault();
+document.getElementById("bookingMsg").innerText="Booking Request Submitted!";
+});
 </script>
 
 </body>
