@@ -5,23 +5,112 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {margin:0;font-family:Arial;background:#f4f6f9;scroll-behavior:smooth;}
-nav {background:#1f2d3d;padding:15px;text-align:center;}
-nav a {color:white;margin:0 15px;text-decoration:none;font-weight:bold;}
-header {background:url('https://images.unsplash.com/photo-1560448075-bb485b067938') center/cover;height:300px;color:white;text-align:center;padding-top:100px;}
-header h1 {font-size:40px;margin:0;}
-section {padding:30px;}
-.box {background:white;padding:20px;margin-bottom:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-.rooms {display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;}
-.room {padding:10px;color:white;text-align:center;border-radius:8px;font-weight:bold;}
-.filled {background:#e74c3c;}
-.vacant {background:#27ae60;}
-.btn {background:#27ae60;color:white;padding:10px 15px;border-radius:5px;text-decoration:none;display:inline-block;margin-top:10px;}
-input, textarea {width:100%;padding:10px;margin:10px 0;border-radius:5px;border:1px solid #ccc;}
-button {background:#1f2d3d;color:white;padding:10px;border:none;border-radius:5px;width:100%;}
-.gallery img {width:100%;border-radius:10px;margin-bottom:10px;}
-footer {background:#1f2d3d;color:white;text-align:center;padding:15px;}
-.whatsapp {position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;text-decoration:none;font-size:20px;}
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#e3f2fd,#fce4ec);
+scroll-behavior:smooth;
+}
+
+nav{
+background:#1f2d3d;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+header{
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1560448075-bb485b067938') center/cover;
+height:320px;
+color:white;
+text-align:center;
+padding-top:100px;
+}
+
+header h1{
+font-size:40px;
+margin:0;
+}
+
+section{
+padding:30px;
+}
+
+.box{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+h2{
+color:#1f2d3d;
+}
+
+.rooms{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+gap:10px;
+}
+
+.room{
+padding:12px;
+color:white;
+text-align:center;
+border-radius:10px;
+font-weight:bold;
+cursor:default;
+}
+
+.filled{
+background:#e74c3c;
+}
+
+.vacant{
+background:#27ae60;
+cursor:pointer;
+}
+
+.vacant:hover{
+background:#2ecc71;
+}
+
+.btn{
+background:#1f2d3d;
+color:white;
+padding:10px 15px;
+border-radius:5px;
+text-decoration:none;
+display:inline-block;
+margin-top:10px;
+}
+
+footer{
+background:#1f2d3d;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+font-size:20px;
+}
 </style>
 </head>
 
@@ -30,104 +119,112 @@ footer {background:#1f2d3d;color:white;text-align:center;padding:15px;}
 <nav>
 <a href="#about">About</a>
 <a href="#rooms">Rooms</a>
-<a href="#gallery">Gallery</a>
-<a href="#booking">Book</a>
-<a href="#payment">Payment</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <header>
 <h1>Mukund Niwas</h1>
-<p>River View Colony, Koni | Near Jay Jaya ITI</p>
+<p>Premium & Peaceful Living at River View Colony, Koni</p>
 </header>
 
 <section id="about">
 <div class="box">
-<h2>About Hostel</h2>
+<h2>Welcome to Mukund Niwas</h2>
+
+<p>
+Mukund Niwas offers a peaceful, safe and comfortable environment for students and working professionals.
+Located near Jay Jaya ITI in River View Colony, Koni, our hostel provides modern living with complete security and convenience.
+</p>
+
+<ul>
+<li>✅ 24×7 Water Supply</li>
+<li>✅ 24×7 Electricity</li>
+<li>✅ RO Drinking Water Available</li>
+<li>✅ Free High-Speed WiFi</li>
+<li>✅ Attached Bathroom</li>
+<li>✅ Personal Study Table</li>
+<li>✅ Safe & Secure Environment</li>
+<li>✅ Flexible Gate Timing</li>
+<li>✅ Open Terrace for Relaxation</li>
+<li>✅ Caretaker Available On-Site</li>
+</ul>
+
 <p><strong>Owner:</strong> Subrata Chand</p>
-<p>Total Rooms: 32</p>
-<p>Per Bed Cost: ₹2500</p>
-<p>Security Deposit: ₹2500 (Refundable)</p>
-<p>Caretaker Available On-Site</p>
-<p>Safe, Secure & Peaceful Environment</p>
+<p><strong>Cost per Bed:</strong> ₹2500</p>
+<p><strong>Security Deposit:</strong> ₹2500 (Refundable)</p>
+
 </div>
 </section>
 
 <section id="rooms">
 <div class="box">
 <h2>Room Availability</h2>
-<p><strong>Available Rooms: 12</strong></p>
-<div class="rooms">
 
+<p><strong>Ground Floor (Room 1–10)</strong></p>
+<div class="rooms">
 <script>
-for(let i=1;i<=32;i++){
+for(let i=1;i<=10;i++){
 if(i%2==0){
 document.write('<div class="room filled">Room '+i+' - Filled</div>');
 }else{
-document.write('<div class="room vacant">Room '+i+' - Vacant</div>');
+document.write('<div class="room vacant" onclick="bookRoom('+i+')">Room '+i+' - Vacant</div>');
 }
 }
 </script>
-
 </div>
+
+<p><strong>First Floor (Room 11–21)</strong></p>
+<div class="rooms">
+<script>
+for(let i=11;i<=21;i++){
+if(i%2==0){
+document.write('<div class="room filled">Room '+i+' - Filled</div>');
+}else{
+document.write('<div class="room vacant" onclick="bookRoom('+i+')">Room '+i+' - Vacant</div>');
+}
+}
+</script>
 </div>
-</section>
 
-<section id="gallery">
-<div class="box">
-<h2>Gallery</h2>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1555854877-bab0e460b8a5">
-<img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7">
-<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+<p><strong>Second Floor (Room 22–32)</strong></p>
+<div class="rooms">
+<script>
+for(let i=22;i<=32;i++){
+if(i%2==0){
+document.write('<div class="room filled">Room '+i+' - Filled</div>');
+}else{
+document.write('<div class="room vacant" onclick="bookRoom('+i+')">Room '+i+' - Vacant</div>');
+}
+}
+</script>
 </div>
-</div>
-</section>
-
-<section id="booking">
-<div class="box">
-<h2>Book a Bed</h2>
-
-<form action="https://formspree.io/f/yourformid" method="POST">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="tel" name="phone" placeholder="Phone Number" required>
-<textarea name="message" placeholder="Your Message"></textarea>
-<button type="submit">Submit Booking</button>
-</form>
-
-</div>
-</section>
-
-<section id="payment">
-<div class="box">
-<h2>Pay Security Deposit / Advance</h2>
-
-<p><strong>UPI ID:</strong> Chandsubrata@ybl</p>
-
-<a class="btn" href="upi://pay?pa=Chandsubrata@ybl&pn=Mukund%20Niwas&am=2500&cu=INR">
-Pay ₹2500 Now
-</a>
-
-<p>After payment, send screenshot on WhatsApp.</p>
 
 </div>
 </section>
 
 <section id="contact">
 <div class="box">
-<h2>Contact</h2>
-<p>Phone: 7000571416</p>
+<h2>Contact & Location</h2>
+<p>📞 7000571416</p>
 <a class="btn" href="tel:7000571416">Call Now</a>
 <br><br>
-<a class="btn" href="https://maps.app.goo.gl/zp2z5449XkAmro1g9?g_st=awb" target="_blank">View Location</a>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&query=River+View+Colony+Koni+Near+Jay+Jaya+ITI" target="_blank">
+Open in Google Maps
+</a>
 </div>
 </section>
 
 <a class="whatsapp" href="https://wa.me/917000571416" target="_blank">💬</a>
 
 <footer>
-© 2026 Mukund Niwas Hostel | Designed for Premium Living
+© 2026 Mukund Niwas Hostel | Safe • Secure • Peaceful Living
 </footer>
+
+<script>
+function bookRoom(roomNumber){
+window.open("https://wa.me/917000571416?text=Hello%20I%20want%20to%20book%20Room%20"+roomNumber,"%20_blank");
+}
+</script>
 
 </body>
 </html>
