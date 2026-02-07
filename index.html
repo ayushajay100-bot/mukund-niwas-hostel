@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mukund Niwas | Premium Boys Hostel Koni</title>
-    <meta name="description" content="Premium living at Mukund Niwas, River View Colony, Koni. RO Water, WiFi, Attached Bathrooms.">
+    <title>Mukund Niwas | Premium Mens Hostel Koni</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -16,21 +15,18 @@
             --card-bg: #181818;
             --text: #ffffff;
             --whatsapp: #25d366;
-            --danger: #ff4757;
         }
 
         body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--dark); color: var(--text); scroll-behavior: smooth; padding-bottom: 70px; }
 
-        /* Hero Section */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555854817-5b2247a8175f?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1350&q=80');
             background-size: cover; background-position: center;
-            height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            height: 65vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
 
         .badge { background: var(--primary); color: black; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; }
 
-        /* Buttons */
         .btn { padding: 12px 25px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; text-decoration: none; transition: 0.3s; display: inline-block; margin: 10px; }
         .btn-gold { background: var(--primary); color: black; }
         .btn-outline { border: 1px solid var(--primary); color: var(--primary); background: transparent; }
@@ -38,45 +34,38 @@
 
         .container { max-width: 1100px; margin: auto; padding: 20px; }
 
-        /* Facilities Section */
         .fac-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; margin-top: 30px; }
-        .fac-item { background: var(--card-bg); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid #222; transition: 0.3s; }
+        .fac-item { background: var(--card-bg); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid #222; }
         .fac-item i { font-size: 1.8rem; color: var(--primary); margin-bottom: 12px; display: block; }
-        .fac-item span { font-size: 0.85rem; font-weight: 500; }
 
-        /* Room Grid */
-        .status-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 50px; }
         .room-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; margin: 20px 0; }
-        .room { padding: 20px 0; text-align: center; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.2s; position: relative; }
+        .room { padding: 20px 0; text-align: center; border-radius: 10px; font-weight: bold; cursor: pointer; }
         .vacant { background: linear-gradient(145deg, #27ae60, #1e8449); color: white; }
         .filled { background: #222; color: #444; border: 1px solid #333; cursor: not-allowed; }
-        .filled::after { content: "FILLED"; position: absolute; bottom: 5px; left: 0; width: 100%; font-size: 0.6rem; opacity: 0.5; }
 
-        /* Sticky Footer Bar */
-        .sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #111; display: flex; padding: 10px; border-top: 2px solid var(--primary); z-index: 100; box-sizing: border-box; }
-        .sticky-bar a { flex: 1; margin: 0 5px; text-align: center; font-size: 0.9rem; padding: 15px; }
+        .pay-box { text-align: center; border: 1px dashed var(--primary); background: rgba(212, 175, 55, 0.05); padding: 25px; border-radius: 15px; margin-top: 40px; }
 
-        /* Modal Popup */
         .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.95); z-index: 1001; justify-content: center; align-items: center; }
         .modal-content { background: #fff; color: #000; padding: 30px; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; }
-        .modal-content img { width: 100%; border-radius: 10px; margin-bottom: 20px; border: 1px solid #eee; }
+        .modal-content img { width: 100%; border-radius: 10px; margin-bottom: 20px; }
 
-        /* Gallery Section */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 40px; }
-        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; }
+        .sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #111; display: flex; padding: 10px; border-top: 2px solid var(--primary); z-index: 100; box-sizing: border-box; }
+        .sticky-bar a { flex: 1; margin: 0 5px; text-align: center; padding: 15px; border-radius: 5px; text-decoration: none; font-weight: bold; }
 
-        @media (max-width: 600px) { header h1 { font-size: 2.2rem; } }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 40px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 12px; }
+        .gallery img { width: 100%; height: 220px; object-fit: cover; transition: 0.3s; }
+        .gallery-label { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 5px; font-size: 0.75rem; color: var(--primary); }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="badge">Highly Rated in Koni</div>
+    <div class="badge">Top Rated Mens Hostel</div>
     <h1 style="color: var(--primary); margin: 0;">Mukund Niwas</h1>
     <p style="letter-spacing: 5px; font-weight: 300; color: #ccc;">EXECUTIVE MENS HOSTEL</p>
     <div style="margin-top: 25px;">
         <a href="#rooms" class="btn btn-gold">Book Your Bed</a>
-        <a href="https://maps.app.goo.gl/zp2z5449XkAmro1g9?g_st=awb" class="btn btn-outline">📍 Get Directions</a>
     </div>
 </header>
 
@@ -84,45 +73,43 @@
     
     <h2 style="text-align: center; margin-top: 50px;">Hostel Facilities</h2>
     <div class="fac-grid">
-        <div class="fac-item"><i class="fas fa-faucet-drip"></i><span>24/7 Water</span></div>
+        <div class="fac-item"><i class="fas fa-droplet"></i><span>24/7 Water</span></div>
         <div class="fac-item"><i class="fas fa-bolt"></i><span>Power Backup</span></div>
         <div class="fac-item"><i class="fas fa-filter"></i><span>RO Drinking Water</span></div>
         <div class="fac-item"><i class="fas fa-wifi"></i><span>Free High-Speed WiFi</span></div>
-        <div class="fac-item"><i class="fas fa-restroom"></i><span>Attached Bath</span></div>
+        <div class="fac-item"><i class="fas fa-person-shelter"></i><span>Attached Bath</span></div>
         <div class="fac-item"><i class="fas fa-table"></i><span>Study Table</span></div>
-        <div class="fac-item"><i class="fas fa-shield-alt"></i><span>CCTV Secured</span></div>
-        <div class="fac-item"><i class="fas fa-sun"></i><span>Open Terrace</span></div>
+        <div class="fac-item"><i class="fas fa-video"></i><span>CCTV Secured</span></div>
+        <div class="fac-item"><i class="fas fa-city"></i><span>Open Terrace</span></div>
     </div>
 
     <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=500&q=80" alt="Room Interior">
-        <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80" alt="Living Space">
-        <img src="https://images.unsplash.com/photo-1626294321113-53d99430c451?auto=format&fit=crop&w=500&q=80" alt="Terrace View">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555854817-5b2247a8175f?auto=format&fit=crop&w=600&q=80"><span class="gallery-label">Premium Rooms</span></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1596239306822-4217fbc3d843?auto=format&fit=crop&w=600&q=80"><span class="gallery-label">Open Terrace</span></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"><span class="gallery-label">Secure Entrance</span></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1626294321113-53d99430c451?auto=format&fit=crop&w=600&q=80"><span class="gallery-label">Interior View</span></div>
     </div>
 
-    <div id="rooms">
-        <div class="status-header">
-            <h3>Live Availability</h3>
-            <span id="update-time" style="font-size: 0.7rem; color: #888;">Updating live...</span>
-        </div>
+    <div id="rooms" style="margin-top: 50px;">
+        <h3>Live Availability</h3>
+        <p style="color: #bbb;">Tap a <span style="color:#27ae60">Green</span> room to book.</p>
         
-        <p style="margin: 20px 0; font-size: 0.9rem; color: #bbb;">Only 12 Vacancies Left. Tap a green room to book via WhatsApp.</p>
-
         <h4>Ground Floor (1 - 10)</h4>
         <div id="gf" class="room-grid"></div>
-        
         <h4>First Floor (11 - 20)</h4>
         <div id="ff" class="room-grid"></div>
-        
         <h4>Second Floor (21 - 32)</h4>
         <div id="sf" class="room-grid"></div>
     </div>
 
-    <div class="fac-item" style="margin-top: 50px; background: rgba(212, 175, 55, 0.05); border: 1px dashed var(--primary);">
-        <h3>Secure Booking via UPI</h3>
-        <p>Monthly: ₹2500 | Refundable Deposit: ₹2500</p>
+    <div class="pay-box">
+        <h3 style="color: var(--primary);">Secure Your Room</h3>
+        <p>Deposit: ₹2500 (Refundable) | Rent: ₹2500</p>
         <div style="font-family: monospace; font-size: 1.2rem; color: var(--primary); margin: 15px;">chandsubrata@ybl</div>
-        <a href="upi://pay?pa=chandsubrata@ybl&pn=Subrata%20Chand&am=2500&cu=INR" class="btn btn-gold">Pay Security Deposit</a>
+        <a href="upi://pay?pa=chandsubrata@ybl&pn=Subrata%20Chand&am=2500&cu=INR" class="btn btn-gold">Pay via UPI App</a>
+        <p style="color: #d4af37; font-weight: bold; margin-top: 15px; font-size: 0.95rem; border-top: 1px solid #333; padding-top: 15px;">
+            ⚠️ After payment, please share the screenshot on WhatsApp for confirmation.
+        </p>
     </div>
 
 </div>
@@ -130,16 +117,16 @@
 <div id="roomModal" class="modal" onclick="closeModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
         <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=500&q=80">
-        <h3 id="mTitle" style="margin: 0 0 10px;">Select Room</h3>
-        <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">Safe, secure, and peaceful room at Mukund Niwas. Ready for immediate move-in.</p>
-        <a id="waBtn" href="#" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Confirm via WhatsApp</a>
-        <button onclick="closeModal()" style="margin-top: 15px; border:none; background:none; color:#999; cursor:pointer;">Cancel</button>
+        <h3 id="mTitle">Room Booking</h3>
+        <p style="color: #666;">Ready to move in? Message the owner now.</p>
+        <a id="waBtn" href="#" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Send Booking Request</a>
+        <button onclick="closeModal()" style="margin-top: 10px; border:none; background:none; color:#999; cursor:pointer;">Go Back</button>
     </div>
 </div>
 
 <div class="sticky-bar">
-    <a href="tel:7000571416" class="btn btn-gold" style="margin:0;"><i class="fas fa-phone"></i> Call Now</a>
-    <a href="https://wa.me/917000571416?text=I%20am%20interested%20in%20Mukund%20Niwas" class="btn btn-wa" style="margin:0;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="tel:7000571416" style="background: var(--primary); color: black;"><i class="fas fa-phone"></i> Call Now</a>
+    <a href="https://wa.me/917000571416" style="background: var(--whatsapp); color: white;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
 </div>
 
 <footer style="text-align: center; padding: 50px; color: #444; font-size: 0.8rem;">
@@ -151,44 +138,27 @@
     function loadRooms() {
         const floors = { gf: [1, 10], ff: [11, 20], sf: [21, 32] };
         let count = 0;
-
         for (const [id, range] of Object.entries(floors)) {
             const el = document.getElementById(id);
             for (let i = range[0]; i <= range[1]; i++) {
                 const r = document.createElement('div');
-                r.className = 'room';
+                r.className = 'room ' + ((i % 2 !== 0 || i > 25) && count < 20 ? 'filled' : 'vacant');
+                if (r.classList.contains('filled')) { count++; r.onclick = () => alert("Occupied"); } 
+                else { r.onclick = () => openModal(i); }
                 r.innerText = i;
-
-                // Keeps your 20 filled / 12 vacant count
-                const isFilled = (i % 2 !== 0 || i > 25);
-                if (isFilled && count < 20) {
-                    r.classList.add('filled');
-                    r.onclick = () => alert("Room " + i + " is fully booked.");
-                    count++;
-                } else {
-                    r.classList.add('vacant');
-                    r.onclick = () => openModal(i);
-                }
                 el.appendChild(r);
             }
         }
-        
-        // Show a fake "Last Updated" time to build trust
-        const d = new Date();
-        document.getElementById('update-time').innerText = "Last Updated: Today, " + d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     }
 
     function openModal(num) {
-        document.getElementById('mTitle').innerText = "Room No. " + num;
-        const msg = encodeURIComponent("I want to book room " + num);
+        document.getElementById('mTitle').innerText = "Book Room No. " + num;
+        const msg = encodeURIComponent("Hello Sir, I am interested to book room no " + num);
         document.getElementById('waBtn').href = "https://wa.me/917000571416?text=" + msg;
         document.getElementById('roomModal').style.display = 'flex';
     }
 
-    function closeModal() {
-        document.getElementById('roomModal').style.display = 'none';
-    }
-
+    function closeModal() { document.getElementById('roomModal').style.display = 'none'; }
     window.onload = loadRooms;
 </script>
 
