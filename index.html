@@ -1,138 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mukund Niwas | Top Rated Hostel in Koni, Bilaspur</title>
+<title>Mukund Niwas | Premium Hostel in Koni, Bilaspur</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Google Font for classy typography -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
+
 body{
 margin:0;
-font-family:'Segoe UI', sans-serif;
-background:linear-gradient(135deg,#141e30,#243b55);
+font-family:'Poppins', sans-serif;
+background:#111;
 color:#f5f5f5;
 }
 
 nav{
-background:#000;
-padding:15px;
+background:#0a0a0a;
+padding:18px;
 text-align:center;
-border-bottom:2px solid gold;
+border-bottom:1px solid rgba(212,175,55,0.5);
 }
 
 nav a{
-color:gold;
-margin:0 15px;
+color:#d4af37;
+margin:0 20px;
 text-decoration:none;
-font-weight:bold;
+font-weight:500;
+letter-spacing:1px;
 }
 
 header{
 text-align:center;
-padding:100px 20px;
+padding:120px 20px;
 background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
 url('https://images.unsplash.com/photo-1560448075-bb485b067938') center/cover;
-background-size:cover;
 }
 
 header h1{
-font-size:42px;
-color:gold;
+font-family:'Playfair Display', serif;
+font-size:46px;
+color:#d4af37;
+margin:0;
 }
 
 header p{
-color:silver;
+margin-top:15px;
+color:#ccc;
 font-size:18px;
 }
 
-.badge{
-display:inline-block;
-background:gold;
-color:black;
-padding:8px 15px;
-border-radius:30px;
-font-weight:bold;
-margin-top:10px;
-}
-
 section{
-padding:40px 25px;
+padding:60px 25px;
 }
 
 .box{
-background:rgba(0,0,0,0.6);
-padding:25px;
-margin-bottom:30px;
-border-radius:15px;
-box-shadow:0 0 20px rgba(255,215,0,0.3);
-border:1px solid rgba(255,215,0,0.3);
+background:#1a1a1a;
+padding:30px;
+margin-bottom:40px;
+border-radius:12px;
+border:1px solid rgba(212,175,55,0.2);
 }
 
 h2{
-color:gold;
+font-family:'Playfair Display', serif;
+color:#d4af37;
+margin-top:0;
+font-weight:500;
 }
 
 .rooms{
 display:grid;
 grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
-gap:12px;
+gap:15px;
+margin-top:20px;
 }
 
 .room{
-padding:12px;
-border-radius:8px;
+padding:14px;
+border-radius:6px;
 text-align:center;
-font-weight:bold;
+font-weight:500;
+letter-spacing:0.5px;
+}
+
+.filled{
+background:#7a1e1e;
+color:white;
+}
+
+.vacant{
+background:#1f6f3f;
 color:white;
 cursor:pointer;
 transition:0.3s;
 }
 
-.filled{
-background:#c0392b;
-cursor:default;
-}
-
-.vacant{
-background:#27ae60;
-}
-
 .vacant:hover{
-transform:scale(1.05);
+background:#2e8b57;
 }
 
 .btn{
-background:gold;
+background:#d4af37;
 color:black;
-padding:12px 18px;
+padding:12px 20px;
 display:inline-block;
-margin-top:12px;
+margin-top:20px;
 text-decoration:none;
-border-radius:5px;
-font-weight:bold;
+border-radius:4px;
+font-weight:500;
+letter-spacing:1px;
 }
 
 .btn:hover{
-background:silver;
+background:#b8962e;
 }
 
 input, textarea{
 width:100%;
-padding:10px;
-margin:10px 0;
-border-radius:6px;
+padding:12px;
+margin:12px 0;
+border-radius:5px;
 border:none;
-}
-
-.stars{
-color:gold;
-font-size:22px;
-}
-
-.testimonial{
-background:rgba(255,255,255,0.1);
-padding:15px;
-border-radius:10px;
-margin-top:15px;
+font-family:'Poppins', sans-serif;
 }
 
 .modal{
@@ -142,7 +133,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.85);
 justify-content:center;
 align-items:center;
 }
@@ -150,25 +141,19 @@ align-items:center;
 .modal-content{
 background:#fff;
 color:black;
-padding:20px;
+padding:25px;
 border-radius:10px;
 width:90%;
 max-width:400px;
 text-align:center;
 }
 
-.close{
-cursor:pointer;
-float:right;
-font-weight:bold;
-}
-
 footer{
-background:#000;
+background:#0a0a0a;
 text-align:center;
-padding:20px;
-color:silver;
-border-top:2px solid gold;
+padding:25px;
+color:#aaa;
+border-top:1px solid rgba(212,175,55,0.3);
 }
 
 .whatsapp{
@@ -182,6 +167,18 @@ border-radius:50%;
 text-decoration:none;
 font-size:20px;
 }
+
+.owner{
+margin-top:20px;
+font-style:italic;
+color:#bbb;
+}
+
+.highlight{
+color:#d4af37;
+font-weight:500;
+}
+
 </style>
 </head>
 
@@ -189,7 +186,6 @@ font-size:20px;
 
 <nav>
 <a href="#rooms">Rooms</a>
-<a href="#reviews">Reviews</a>
 <a href="#booking">Booking</a>
 <a href="#payment">Payment</a>
 <a href="#contact">Contact</a>
@@ -197,38 +193,42 @@ font-size:20px;
 
 <header>
 <h1>Mukund Niwas</h1>
-<p>Premium & Safe Hostel in Koni, Bilaspur</p>
-<div class="badge">⭐ Top Rated Hostel in Koni</div>
+<p>Premium & Peaceful Living in Koni, Bilaspur</p>
 </header>
+
+<section>
+<div class="box">
+<h2>About Mukund Niwas</h2>
+
+<p>
+Mukund Niwas is a well-maintained and secure hostel located at River View Colony,
+Koni near Jay Jaya ITI. The property is designed to provide a calm,
+disciplined and comfortable environment for students and working professionals.
+</p>
+
+<ul>
+<li>24×7 Water & Electricity</li>
+<li>RO Drinking Water Facility</li>
+<li>High-Speed WiFi</li>
+<li>Attached Bathrooms</li>
+<li>Individual Study Tables</li>
+<li>Flexible Gate Timings</li>
+<li>Open Terrace Access</li>
+<li>On-Site Caretaker Supervision</li>
+</ul>
+
+<div class="owner">
+Owned & Managed by <span class="highlight">Subrata Chand</span>
+</div>
+
+</div>
+</section>
 
 <section id="rooms">
 <div class="box">
 <h2>Room Availability</h2>
-<p><strong>Available Rooms: <span id="count"></span></strong></p>
+<p>Currently Available Rooms: <span id="count" class="highlight"></span></p>
 <div class="rooms" id="roomContainer"></div>
-</div>
-</section>
-
-<section id="reviews">
-<div class="box">
-<h2>Student Reviews</h2>
-<div class="stars">★★★★★</div>
-
-<div class="testimonial">
-<strong>Rahul Verma</strong><br>
-Very peaceful and safe environment. Best hostel near Jay Jaya ITI.
-</div>
-
-<div class="testimonial">
-<strong>Ankit Sharma</strong><br>
-24×7 water and electricity. Owner is very supportive.
-</div>
-
-<div class="testimonial">
-<strong>Priya Singh</strong><br>
-Clean rooms with attached bathrooms. Highly recommended!
-</div>
-
 </div>
 </section>
 
@@ -236,60 +236,71 @@ Clean rooms with attached bathrooms. Highly recommended!
 <div class="box">
 <h2>Booking Enquiry</h2>
 <form onsubmit="sendEnquiry(event)">
-<input type="text" id="name" placeholder="Your Name" required>
-<input type="tel" id="phone" placeholder="Phone Number" required>
-<textarea id="message" placeholder="Your Message"></textarea>
-<button type="submit" class="btn">Send Enquiry</button>
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="tel" id="phone" placeholder="Contact Number" required>
+<textarea id="message" placeholder="Your enquiry"></textarea>
+<button type="submit" class="btn">Submit Enquiry</button>
 </form>
 </div>
 </section>
 
 <section id="payment">
 <div class="box">
-<h2>UPI Payment</h2>
-<p><strong>UPI ID:</strong> Chandsubrata@ybl</p>
+<h2>Payment Information</h2>
+
 <p>
-₹2500 per bed monthly + ₹2500 one time deposit (fully refundable).  
-For booking confirmation, advance payment of ₹2500 is necessary.  
-After payment, kindly send the screenshot on WhatsApp.
+<span class="highlight">₹2500 per bed (monthly rent)</span>  
+plus <span class="highlight">₹2500 one-time refundable security deposit</span>.
 </p>
+
+<p>
+To confirm a booking, an advance payment of <span class="highlight">₹2500</span> is required.  
+Kindly share the payment confirmation screenshot on WhatsApp after completing the transaction.
+</p>
+
+<p><strong>UPI ID:</strong> Chandsubrata@ybl</p>
+
 <a class="btn"
 href="upi://pay?pa=Chandsubrata@ybl&pn=MukundNiwas&am=2500&cu=INR">
 Pay ₹2500 Now
 </a>
+
 </div>
 </section>
 
 <section id="contact">
 <div class="box">
 <h2>Contact & Location</h2>
-<p>📞 7000571416</p>
+<p>Contact Number: <span class="highlight">7000571416</span></p>
+
 <a class="btn"
-href="https://wa.me/917000571416?text=Hello I want to book a room at Mukund Niwas">
-Book on WhatsApp
+href="https://wa.me/917000571416?text=Hello I would like to enquire about room availability at Mukund Niwas">
+Message on WhatsApp
 </a>
+
 <br><br>
+
 <a class="btn"
 href="https://maps.app.goo.gl/zp2z5449XkAmro1g9?g_st=awb"
 target="_blank">
 View Location on Google Maps
 </a>
+
 </div>
 </section>
 
 <div class="modal" id="roomModal">
 <div class="modal-content">
-<span class="close" onclick="closeModal()">X</span>
 <h3 id="roomTitle"></h3>
 <img id="roomImage" src="" style="width:100%;border-radius:10px;">
-<a id="bookBtn" class="btn">Book on WhatsApp</a>
+<a id="bookBtn" class="btn">Book This Room</a>
 </div>
 </div>
 
 <a class="whatsapp" href="https://wa.me/917000571416">💬</a>
 
 <footer>
-© 2026 Mukund Niwas Hostel | Premium Living
+© 2026 Mukund Niwas Hostel • Koni, Bilaspur
 </footer>
 
 <script>
@@ -302,11 +313,11 @@ div.classList.add("room");
 
 if(i<=20){
 div.classList.add("filled");
-div.innerText="Room "+i+" - FILLED";
+div.innerText="Room "+i+" – Occupied";
 }
 else{
 div.classList.add("vacant");
-div.innerText="Room "+i+" - VACANT";
+div.innerText="Room "+i+" – Available";
 available++;
 div.onclick=function(){openRoom(i);}
 }
@@ -320,11 +331,7 @@ function openRoom(num){
 document.getElementById("roomModal").style.display="flex";
 document.getElementById("roomTitle").innerText="Room "+num;
 document.getElementById("roomImage").src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7";
-document.getElementById("bookBtn").href="https://wa.me/917000571416?text=I want to book Room "+num;
-}
-
-function closeModal(){
-document.getElementById("roomModal").style.display="none";
+document.getElementById("bookBtn").href="https://wa.me/917000571416?text=I would like to book Room "+num;
 }
 
 function sendEnquiry(e){
@@ -332,12 +339,14 @@ e.preventDefault();
 let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 let message=document.getElementById("message").value;
-let text="Booking Enquiry:%0AName: "+name+
+
+let text="Enquiry for Mukund Niwas:%0AName: "+name+
 "%0APhone: "+phone+
 "%0AMessage: "+message;
+
 window.open("https://wa.me/917000571416?text="+text);
 }
 </script>
 
 </body>
-</html>
+  </html>
