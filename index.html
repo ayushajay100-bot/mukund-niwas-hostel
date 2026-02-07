@@ -19,9 +19,9 @@
 
         body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--dark); color: var(--text); scroll-behavior: smooth; padding-bottom: 80px; }
 
-        /* Cover Page / Hero Section */
+        /* HEADER / COVER PHOTO */
         header {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1555854817-5b2247a8175f?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1350&q=80');
             background-size: cover; background-position: center;
             height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
@@ -35,18 +35,16 @@
 
         .container { max-width: 1100px; margin: auto; padding: 20px; }
 
-        /* Facilities Section with Fixed Bathroom Icon */
         .fac-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; margin-top: 40px; }
         .fac-item { background: var(--card-bg); padding: 25px; border-radius: 12px; text-align: center; border: 1px solid #222; }
         .fac-item i { font-size: 2rem; color: var(--primary); margin-bottom: 12px; display: block; }
 
-        /* Gallery Section with Specific Views */
+        /* GALLERY SECTION */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 50px; }
         .gallery-item { position: relative; overflow: hidden; border-radius: 15px; border: 1px solid #333; }
         .gallery img { width: 100%; height: 250px; object-fit: cover; display: block; }
         .gallery-label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.7); padding: 10px; font-size: 0.8rem; color: var(--primary); text-align: center; font-weight: bold; }
 
-        /* Live Availability Styling */
         .room-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 12px; margin: 25px 0; }
         .room { padding: 22px 0; text-align: center; border-radius: 12px; font-weight: bold; cursor: pointer; }
         .vacant { background: linear-gradient(145deg, #27ae60, #1e8449); color: white; box-shadow: 0 4px 10px rgba(39,174,96,0.3); }
@@ -89,8 +87,8 @@
     </div>
 
     <div class="gallery">
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80"><span class="gallery-label">Premium Room Photo</span></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1596239306822-4217fbc3d843?auto=format&fit=crop&w=600&q=80"><span class="gallery-label">Open Terrace View</span></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80"><span class="gallery-label">Premium Room Photo</span></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1621506289937-48e49339c67a?auto=format&fit=crop&w=600&q=80"><span class="gallery-label">Open Terrace View</span></div>
         <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80"><span class="gallery-label">Interior View</span></div>
         <div class="gallery-item"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80"><span class="gallery-label">Secure Entrance</span></div>
     </div>
@@ -158,7 +156,6 @@
 
     function openModal(num) {
         document.getElementById('mTitle').innerText = "Book Room No. " + num;
-        // Exact Professional WhatsApp Hook
         const msg = encodeURIComponent("Hello Sir, I am interested to book room no " + num + ". Please guide me with the next steps.");
         document.getElementById('waBtn').href = "https://wa.me/917000571416?text=" + msg;
         document.getElementById('roomModal').style.display = 'flex';
@@ -169,5 +166,4 @@
 </script>
 
 </body>
-            </html>
-            
+</html>
