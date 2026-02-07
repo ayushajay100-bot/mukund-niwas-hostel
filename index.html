@@ -511,100 +511,235 @@ a safe, secure and peaceful environment for students and professionals.
 <a class="btn" href="upi://pay?pa=Chandsubrata@ybl&pn=MukundNiwas&am=2500&cu=INR">
 Pay ₹2500 Now
 </a>
-<br><br>
-<a class="btn" href="payment-success.html">I Have Paid</a>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mukund Niwas Hostel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+nav{
+background:#000;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+header{
+text-align:center;
+padding:70px 20px;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1560448075-bb485b067938') center/cover;
+}
+
+section{
+padding:30px;
+}
+
+.box{
+background:white;
+color:black;
+padding:20px;
+margin-bottom:25px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+h2{
+margin-top:0;
+}
+
+.rooms{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+gap:10px;
+}
+
+.room{
+padding:12px;
+border-radius:8px;
+text-align:center;
+font-weight:bold;
+color:white;
+}
+
+.filled{
+background:#e74c3c;
+}
+
+.vacant{
+background:#27ae60;
+cursor:pointer;
+}
+
+.vacant:hover{
+background:#2ecc71;
+}
+
+.btn{
+background:black;
+color:white;
+padding:10px 15px;
+display:inline-block;
+margin-top:10px;
+text-decoration:none;
+border-radius:5px;
+}
+
+footer{
+background:#000;
+text-align:center;
+padding:15px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#about">About</a>
+<a href="#rooms">Rooms</a>
+<a href="#payment">Payment</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<header>
+<h1>Mukund Niwas</h1>
+<p>Safe • Peaceful • Premium Living in River View Colony, Koni</p>
+</header>
+
+<section id="about">
+<div class="box">
+<h2>Welcome to Mukund Niwas</h2>
+
+<p>
+Located near Jay Jaya ITI in River View Colony, Koni, Mukund Niwas offers a secure,
+peaceful and comfortable environment for students and working professionals.
+</p>
+
+<ul>
+<li>✔ 24×7 Water Supply</li>
+<li>✔ 24×7 Electricity</li>
+<li>✔ RO Drinking Water Available</li>
+<li>✔ Free High-Speed WiFi</li>
+<li>✔ Attached Bathroom</li>
+<li>✔ Personal Study Table</li>
+<li>✔ Safe & Secure Environment</li>
+<li>✔ Peaceful Surroundings</li>
+<li>✔ Caretaker Available On-Site</li>
+</ul>
+
+<p><strong>Owner:</strong> Subrata Chand</p>
+<p><strong>Total Rooms:</strong> 32</p>
+<p><strong>Cost per Bed:</strong> ₹2500</p>
+<p><strong>Security Deposit:</strong> ₹2500 (Refundable)</p>
+
 </div>
 </section>
 
-<section id="admin">
+<section id="rooms">
 <div class="box">
-<h2>Admin Login</h2>
-<input type="password" id="adminPass" placeholder="Enter Password">
-<button onclick="adminLogin()">Login</button>
-<p id="adminMsg"></p>
+<h2>Room Availability</h2>
+<p><strong>Available Rooms: <span id="count"></span></strong></p>
+
+<div class="rooms" id="roomContainer"></div>
+
+</div>
+</section>
+
+<section id="payment">
+<div class="box">
+<h2>Online Payment</h2>
+<p>UPI ID: Chandsubrata@ybl</p>
+
+<a class="btn" href="upi://pay?pa=Chandsubrata@ybl&pn=MukundNiwas&am=2500&cu=INR">
+Pay ₹2500 Now
+</a>
+
 </div>
 </section>
 
 <section id="contact">
 <div class="box">
-<h2>Contact</h2>
+<h2>Contact & Location</h2>
 <p>📞 7000571416</p>
+
 <a class="btn" href="tel:7000571416">Call Now</a>
+
 <br><br>
-<a class="btn" href="https://www.google.com/maps/search/?api=1&query=River+View+Colony+Koni+Near+Jay+Jaya+ITI" target="_blank">
+
+<a class="btn"
+href="https://www.google.com/maps/search/?api=1&query=River+View+Colony+Koni+Near+Jay+Jaya+ITI"
+target="_blank">
 Open in Google Maps
 </a>
+
 </div>
 </section>
 
-<div class="modal" id="roomModal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">X</span>
-<h3 id="roomTitle"></h3>
-<img id="roomImage" src="" style="width:100%;border-radius:10px;">
-<a id="bookBtn" class="btn">Book via WhatsApp</a>
-</div>
-</div>
+<a class="whatsapp"
+href="https://wa.me/917000571416?text=Hello I want to inquire about Mukund Niwas Hostel"
+target="_blank">
+💬
+</a>
+
+<footer>
+© 2026 Mukund Niwas Hostel | Designed for Safe & Peaceful Living
+</footer>
 
 <script>
-let roomsData = JSON.parse(localStorage.getItem("rooms")) || {};
-let available=0;
+let container = document.getElementById("roomContainer");
+let available = 0;
 
-function renderRooms(){
-ground.innerHTML="";
-first.innerHTML="";
-second.innerHTML="";
-available=0;
-
+/* 20 filled + 12 vacant */
 for(let i=1;i<=32;i++){
-if(!roomsData[i]){
-roomsData[i]=(i%2===0?"filled":"vacant");
-}
-let div=document.createElement("div");
-div.className="room "+roomsData[i];
-div.innerText="Room "+i+" - "+roomsData[i].toUpperCase();
 
-if(roomsData[i]==="vacant"){
+let div = document.createElement("div");
+div.classList.add("room");
+
+/* First 20 filled, last 12 vacant */
+if(i <= 20){
+div.classList.add("filled");
+div.innerText = "Room " + i + " - FILLED";
+}
+else{
+div.classList.add("vacant");
+div.innerText = "Room " + i + " - VACANT";
 available++;
-div.onclick=function(){openRoom(i);}
-}
-
-if(i<=10) ground.appendChild(div);
-else if(i<=21) first.appendChild(div);
-else second.appendChild(div);
-}
-
-count.innerText=available;
-localStorage.setItem("rooms",JSON.stringify(roomsData));
-}
-
-function openRoom(num){
-roomModal.style.display="flex";
-roomTitle.innerText="Room "+num;
-roomImage.src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7";
-bookBtn.href="https://wa.me/917000571416?text=I want to book Room "+num;
-}
-
-function closeModal(){
-roomModal.style.display="none";
-}
-
-function adminLogin(){
-if(adminPass.value==="mukund2026"){
-adminMsg.innerText="Admin Mode Active. Click rooms to toggle.";
-document.querySelectorAll(".room").forEach((div,index)=>{
-div.onclick=function(){
-let num=index+1;
-roomsData[num]=roomsData[num]==="filled"?"vacant":"filled";
-renderRooms();
-};
-});
-}else{
-adminMsg.innerText="Wrong Password";
+div.onclick = function(){
+window.open("https://wa.me/917000571416?text=I want to book Room " + i);
 }
 }
 
-renderRooms();
+container.appendChild(div);
+}
+
+document.getElementById("count").innerText = available;
 </script>
 
 </body>
