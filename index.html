@@ -675,71 +675,205 @@ peaceful and comfortable environment for students and working professionals.
 <section id="payment">
 <div class="box">
 <h2>Online Payment</h2>
-<p>UPI ID: Chandsubrata@ybl</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukund Niwas | Premium Boys Hostel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d4af37; /* Gold for premium feel */
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+        }
 
-<a class="btn" href="upi://pay?pa=Chandsubrata@ybl&pn=MukundNiwas&am=2500&cu=INR">
-Pay ₹2500 Now
-</a>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555854817-5b2247a8175f?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 { font-size: 3rem; color: var(--primary); margin-bottom: 10px; }
+        .subtitle { font-size: 1.2rem; max-width: 600px; }
+
+        /* Content Container */
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: #252525;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Room Grid */
+        .floor-title { border-bottom: 2px solid var(--primary); margin: 30px 0 15px; padding-bottom: 10px; }
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .room {
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-weight: bold;
+        }
+        .room:hover { transform: scale(1.05); }
+        .filled { background-color: var(--danger); color: white; opacity: 0.6; }
+        .vacant { background-color: var(--success); color: white; }
+
+        /* Modal / Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            color: #000;
+            text-align: center;
+        }
+        .modal-content img { width: 100%; border-radius: 5px; }
+
+        footer { text-align: center; padding: 40px; background: #111; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mukund Niwas</h1>
+    <p class="subtitle">Experience peaceful, secure, and premium living at River View Colony, Koni.</p>
+</header>
+
+<div class="container">
+    
+    <div class="details-grid">
+        <div class="card">
+            <h3>📍 Location & Contact</h3>
+            <p>River View Colony, Koni<br>Near Jay Jaya ITI</p>
+            <p><strong>Owner:</strong> Subrata Chand</p>
+            <p><strong>Phone:</strong> +91 7000571416</p>
+        </div>
+        <div class="card">
+            <h3>💎 Pricing</h3>
+            <p><strong>Rent:</strong> ₹2,500 / month (per bed)</p>
+            <p><strong>Deposit:</strong> ₹2,500 (100% Refundable)</p>
+            <p><strong>Status:</strong> Caretaker Available 24/7</p>
+        </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 50px;">
+        <h3>🚀 Premium Facilities</h3>
+        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <li>✅ RO Purified Water</li>
+            <li>✅ Attached Bathrooms</li>
+            <li>✅ Personal Study Tables</li>
+            <li>✅ High-Speed Free Wi-Fi</li>
+            <li>✅ 24/7 Water & Electricity</li>
+            <li>✅ Peaceful Study Environment</li>
+            <li>✅ CCTV Secured Campus</li>
+        </ul>
+    </div>
+
+    <h2 class="floor-title">Ground Floor (1 - 10)</h2>
+    <div id="ground-floor" class="room-grid"></div>
+
+    <h2 class="floor-title">First Floor (11 - 20)</h2>
+    <div id="first-floor" class="room-grid"></div>
+
+    <h2 class="floor-title">Second Floor (21 - 32)</h2>
+    <div id="second-floor" class="room-grid"></div>
 
 </div>
-</section>
 
-<section id="contact">
-<div class="box">
-<h2>Contact & Location</h2>
-<p>📞 7000571416</p>
-
-<a class="btn" href="tel:7000571416">Call Now</a>
-
-<br><br>
-
-<a class="btn"
-href="https://www.google.com/maps/search/?api=1&query=River+View+Colony+Koni+Near+Jay+Jaya+ITI"
-target="_blank">
-Open in Google Maps
-</a>
-
+<div id="roomModal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80" alt="Room Image">
+        <h3 id="modalRoomTitle">Room Details</h3>
+        <p>Premium furnishings with ample sunlight and ventilation.</p>
+        <button onclick="closeModal()" style="padding: 10px 20px; cursor: pointer;">Close</button>
+    </div>
 </div>
-</section>
-
-<a class="whatsapp"
-href="https://wa.me/917000571416?text=Hello I want to inquire about Mukund Niwas Hostel"
-target="_blank">
-💬
-</a>
 
 <footer>
-© 2026 Mukund Niwas Hostel | Designed for Safe & Peaceful Living
+    &copy; 2026 Mukund Niwas. All rights reserved. | Managed by Subrata Chand
 </footer>
 
 <script>
-let container = document.getElementById("roomContainer");
-let available = 0;
+    const ground = document.getElementById('ground-floor');
+    const first = document.getElementById('first-floor');
+    const second = document.getElementById('second-floor');
 
-/* 20 filled + 12 vacant */
-for(let i=1;i<=32;i++){
+    // Room Logic: 20 Filled, 12 Vacant (Alternating)
+    for (let i = 1; i <= 32; i++) {
+        const room = document.createElement('div');
+        room.classList.add('room');
+        room.innerText = "Room " + i;
+        
+        // Logical pattern to get exactly 20 filled and 12 vacant
+        // Most odd numbers filled, some even filled to hit the 20/12 ratio
+        if (i % 2 !== 0 || i > 24) { 
+            room.classList.add('filled');
+            room.title = "Currently Occupied";
+        } else {
+            room.classList.add('vacant');
+            room.title = "Available for Booking";
+        }
 
-let div = document.createElement("div");
-div.classList.add("room");
+        room.onclick = () => openModal(i);
 
-/* First 20 filled, last 12 vacant */
-if(i <= 20){
-div.classList.add("filled");
-div.innerText = "Room " + i + " - FILLED";
-}
-else{
-div.classList.add("vacant");
-div.innerText = "Room " + i + " - VACANT";
-available++;
-div.onclick = function(){
-window.open("https://wa.me/917000571416?text=I want to book Room " + i);
-}
-}
+        if (i <= 10) ground.appendChild(room);
+        else if (i <= 20) first.appendChild(room);
+        else second.appendChild(room);
+    }
 
-container.appendChild(div);
-}
+    function openModal(num) {
+        document.getElementById('modalRoomTitle').innerText = "Viewing Room " + num;
+        document.getElementById('roomModal').style.display = 'flex';
+    }
 
-document.getElementById("count").innerText = available;
+    function closeModal() {
+        document.getElementById('roomModal').style.display = 'none';
+    }
 </script>
 
 </body>
