@@ -7,13 +7,13 @@
 <style>
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:linear-gradient(135deg,#e3f2fd,#fce4ec);
 scroll-behavior:smooth;
 }
 
 nav{
-background:#1f2d3d;
+background:#0d1b2a;
 padding:15px;
 text-align:center;
 }
@@ -26,22 +26,44 @@ font-weight:bold;
 }
 
 header{
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1560448075-bb485b067938') center/cover;
+position:relative;
 height:320px;
+overflow:hidden;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+animation:slideShow 15s infinite;
+}
+
+.slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1560448075-bb485b067938');}
+.slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1555854877-bab0e460b8a5'); animation-delay:5s;}
+.slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7'); animation-delay:10s;}
+
+@keyframes slideShow{
+0%{opacity:1}
+30%{opacity:1}
+33%{opacity:0}
+100%{opacity:0}
+}
+
+.hero-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
 color:white;
 text-align:center;
-padding-top:100px;
+background:rgba(0,0,0,0.5);
+padding:20px;
+border-radius:10px;
 }
 
-header h1{
-font-size:40px;
-margin:0;
-}
-
-section{
-padding:30px;
-}
+section{padding:30px;}
 
 .box{
 background:white;
@@ -51,13 +73,9 @@ border-radius:15px;
 box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
-h2{
-color:#1f2d3d;
-}
-
 .rooms{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
 gap:10px;
 }
 
@@ -67,24 +85,14 @@ color:white;
 text-align:center;
 border-radius:10px;
 font-weight:bold;
-cursor:default;
 }
 
-.filled{
-background:#e74c3c;
-}
-
-.vacant{
-background:#27ae60;
-cursor:pointer;
-}
-
-.vacant:hover{
-background:#2ecc71;
-}
+.filled{background:#e74c3c;}
+.vacant{background:#27ae60;cursor:pointer;}
+.vacant:hover{background:#2ecc71;}
 
 .btn{
-background:#1f2d3d;
+background:#0d1b2a;
 color:white;
 padding:10px 15px;
 border-radius:5px;
@@ -94,7 +102,7 @@ margin-top:10px;
 }
 
 footer{
-background:#1f2d3d;
+background:#0d1b2a;
 color:white;
 text-align:center;
 padding:15px;
@@ -119,38 +127,43 @@ font-size:20px;
 <nav>
 <a href="#about">About</a>
 <a href="#rooms">Rooms</a>
+<a href="#payment">Payment</a>
+<a href="#admin">Admin</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <header>
+<div class="slide"></div>
+<div class="slide"></div>
+<div class="slide"></div>
+<div class="hero-text">
 <h1>Mukund Niwas</h1>
-<p>Premium & Peaceful Living at River View Colony, Koni</p>
+<p>Premium Safe & Peaceful Living</p>
+</div>
 </header>
 
 <section id="about">
 <div class="box">
 <h2>Welcome to Mukund Niwas</h2>
-
 <p>
-Mukund Niwas offers a peaceful, safe and comfortable environment for students and working professionals.
-Located near Jay Jaya ITI in River View Colony, Koni, our hostel provides modern living with complete security and convenience.
+Located at River View Colony, Koni near Jay Jaya ITI, Mukund Niwas offers 
+a secure, peaceful and premium living experience for students and professionals.
 </p>
 
 <ul>
-<li>✅ 24×7 Water Supply</li>
-<li>✅ 24×7 Electricity</li>
-<li>✅ RO Drinking Water Available</li>
-<li>✅ Free High-Speed WiFi</li>
-<li>✅ Attached Bathroom</li>
-<li>✅ Personal Study Table</li>
-<li>✅ Safe & Secure Environment</li>
-<li>✅ Flexible Gate Timing</li>
-<li>✅ Open Terrace for Relaxation</li>
-<li>✅ Caretaker Available On-Site</li>
+<li>24×7 Water & Electricity</li>
+<li>RO Drinking Water</li>
+<li>Free High-Speed WiFi</li>
+<li>Attached Bathrooms</li>
+<li>Study Table in Every Room</li>
+<li>Flexible Gate Timings</li>
+<li>Open Terrace</li>
+<li>Safe & Secure Environment</li>
+<li>Caretaker Available</li>
 </ul>
 
 <p><strong>Owner:</strong> Subrata Chand</p>
-<p><strong>Cost per Bed:</strong> ₹2500</p>
+<p><strong>Cost:</strong> ₹2500 per bed</p>
 <p><strong>Security Deposit:</strong> ₹2500 (Refundable)</p>
 
 </div>
@@ -159,46 +172,36 @@ Located near Jay Jaya ITI in River View Colony, Koni, our hostel provides modern
 <section id="rooms">
 <div class="box">
 <h2>Room Availability</h2>
+<p><strong>Available Rooms: <span id="availableCount"></span></strong></p>
 
-<p><strong>Ground Floor (Room 1–10)</strong></p>
-<div class="rooms">
-<script>
-for(let i=1;i<=10;i++){
-if(i%2==0){
-document.write('<div class="room filled">Room '+i+' - Filled</div>');
-}else{
-document.write('<div class="room vacant" onclick="bookRoom('+i+')">Room '+i+' - Vacant</div>');
-}
-}
-</script>
+<div class="rooms" id="roomContainer"></div>
+
 </div>
+</section>
 
-<p><strong>First Floor (Room 11–21)</strong></p>
-<div class="rooms">
-<script>
-for(let i=11;i<=21;i++){
-if(i%2==0){
-document.write('<div class="room filled">Room '+i+' - Filled</div>');
-}else{
-document.write('<div class="room vacant" onclick="bookRoom('+i+')">Room '+i+' - Vacant</div>');
-}
-}
-</script>
+<section id="payment">
+<div class="box">
+<h2>Online Payment</h2>
+<p>UPI ID: Chandsubrata@ybl</p>
+
+<a class="btn" href="upi://pay?pa=Chandsubrata@ybl&pn=MukundNiwas&am=2500&cu=INR">
+Pay ₹2500 Now
+</a>
+
+<br><br>
+<a class="btn" href="payment-success.html">
+I Have Paid
+</a>
+
 </div>
+</section>
 
-<p><strong>Second Floor (Room 22–32)</strong></p>
-<div class="rooms">
-<script>
-for(let i=22;i<=32;i++){
-if(i%2==0){
-document.write('<div class="room filled">Room '+i+' - Filled</div>');
-}else{
-document.write('<div class="room vacant" onclick="bookRoom('+i+')">Room '+i+' - Vacant</div>');
-}
-}
-</script>
-</div>
-
+<section id="admin">
+<div class="box">
+<h2>Admin Login</h2>
+<input type="password" id="adminPass" placeholder="Enter Admin Password">
+<button onclick="adminLogin()">Login</button>
+<p id="adminMsg"></p>
 </div>
 </section>
 
@@ -217,13 +220,57 @@ Open in Google Maps
 <a class="whatsapp" href="https://wa.me/917000571416" target="_blank">💬</a>
 
 <footer>
-© 2026 Mukund Niwas Hostel | Safe • Secure • Peaceful Living
+© 2026 Mukund Niwas Hostel | Premium Living
 </footer>
 
 <script>
-function bookRoom(roomNumber){
-window.open("https://wa.me/917000571416?text=Hello%20I%20want%20to%20book%20Room%20"+roomNumber,"%20_blank");
+let rooms = [];
+let available = 0;
+
+for(let i=1;i<=32;i++){
+let status = (i%2===0)?"filled":"vacant";
+rooms.push({number:i,status:status});
 }
+
+function renderRooms(){
+let container=document.getElementById("roomContainer");
+container.innerHTML="";
+available=0;
+
+rooms.forEach(room=>{
+let div=document.createElement("div");
+div.className="room "+room.status;
+div.innerText="Room "+room.number+" - "+room.status.toUpperCase();
+
+if(room.status==="vacant"){
+available++;
+div.onclick=function(){
+window.open("https://wa.me/917000571416?text=I want to book Room "+room.number);
+};
+}
+
+container.appendChild(div);
+});
+
+document.getElementById("availableCount").innerText=available;
+}
+
+function adminLogin(){
+let pass=document.getElementById("adminPass").value;
+if(pass==="admin123"){
+document.getElementById("adminMsg").innerText="Login Successful! Click rooms to toggle status.";
+document.querySelectorAll(".room").forEach((roomDiv,index)=>{
+roomDiv.onclick=function(){
+rooms[index].status = rooms[index].status==="filled"?"vacant":"filled";
+renderRooms();
+};
+});
+}else{
+document.getElementById("adminMsg").innerText="Wrong Password!";
+}
+}
+
+renderRooms();
 </script>
 
 </body>
